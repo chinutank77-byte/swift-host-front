@@ -1,0 +1,422 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f0f0f3;
+  --surface: #f0f0f3;
+  --border: #e0e0e5;
+  --text: #1a1a2e;
+  --muted: #8888a0;
+  --accent: #3b82f6;
+  --accent-dim: #2563eb;
+  --accent-bg: #eff6ff;
+  --danger: #ef4444;
+  --success: #22c55e;
+
+  --nm-shadow-light: #ffffff;
+  --nm-shadow-dark: #d1d1d8;
+  --nm-btn-accent-shadow-light: rgba(255, 255, 255, 0.6);
+  --nm-btn-accent-shadow-dark: rgba(59, 130, 246, 0.35);
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-sm-bg: rgba(255, 255, 255, 0.45);
+  --glass-sm-border: rgba(255, 255, 255, 0.5);
+  --glass-hover-bg: rgba(255, 255, 255, 0.7);
+  --glass-hover-shadow: rgba(0, 0, 0, 0.06);
+  --navbar-bg: rgba(255, 255, 255, 0.85);
+  --navbar-border: rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --bg: #0b0f19;
+  --surface: #151d30;
+  --border: #222f4c;
+  --text: #f1f5f9;
+  --muted: #64748b;
+  --accent: #3b82f6;
+  --accent-dim: #60a5fa;
+  --accent-bg: rgba(59, 130, 246, 0.15);
+  --danger: #ef4444;
+  --success: #22c55e;
+
+  --nm-shadow-light: #1c273e;
+  --nm-shadow-dark: #070a11;
+  --nm-btn-accent-shadow-light: rgba(255, 255, 255, 0.1);
+  --nm-btn-accent-shadow-dark: rgba(0, 0, 0, 0.4);
+  --glass-bg: rgba(21, 29, 48, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-sm-bg: rgba(21, 29, 48, 0.5);
+  --glass-sm-border: rgba(255, 255, 255, 0.06);
+  --glass-hover-bg: rgba(21, 29, 48, 0.85);
+  --glass-hover-shadow: rgba(0, 0, 0, 0.2);
+  --navbar-bg: rgba(11, 15, 25, 0.85);
+  --navbar-border: rgba(255, 255, 255, 0.06);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-dim: var(--accent-dim);
+  --color-accent-bg: var(--accent-bg);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "ss03", "cv01";
+}
+
+* {
+  border-color: var(--border);
+}
+
+/* === NEUMORPHISM UTILITIES === */
+
+.nm-convex {
+  background: var(--surface);
+  border-radius: 16px;
+  box-shadow: 6px 6px 14px var(--nm-shadow-dark),
+    -6px -6px 14px var(--nm-shadow-light);
+  border: none;
+}
+
+.nm-convex-sm {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 4px 4px 10px var(--nm-shadow-dark),
+    -4px -4px 10px var(--nm-shadow-light);
+  border: none;
+}
+
+.nm-concave {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: inset 4px 4px 10px var(--nm-shadow-dark),
+    inset -4px -4px 10px var(--nm-shadow-light);
+  border: none;
+}
+
+.nm-concave-sm {
+  background: var(--surface);
+  border-radius: 8px;
+  box-shadow: inset 2px 2px 6px var(--nm-shadow-dark),
+    inset -2px -2px 6px var(--nm-shadow-light);
+  border: none;
+}
+
+.nm-btn {
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px var(--nm-shadow-dark),
+    -4px -4px 10px var(--nm-shadow-light);
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+
+.nm-btn:hover {
+  box-shadow: 2px 2px 6px var(--nm-shadow-dark),
+    -2px -2px 6px var(--nm-shadow-light);
+}
+
+.nm-btn:active {
+  box-shadow: inset 3px 3px 8px var(--nm-shadow-dark),
+    inset -3px -3px 8px var(--nm-shadow-light);
+  transform: scale(0.98);
+}
+
+.nm-btn-accent {
+  background: var(--accent);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 4px 4px 12px var(--nm-btn-accent-shadow-dark),
+    -2px -2px 8px var(--nm-btn-accent-shadow-light);
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.1s;
+}
+
+.nm-btn-accent:hover {
+  box-shadow: 2px 2px 8px var(--nm-btn-accent-shadow-dark),
+    -1px -1px 5px var(--nm-btn-accent-shadow-light);
+}
+
+.nm-btn-accent:active {
+  box-shadow: inset 3px 3px 8px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
+}
+
+/* === GLASSMORPHISM UTILITIES === */
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-sm {
+  background: var(--glass-sm-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-sm-border);
+  border-radius: 12px;
+}
+
+.glass-hover {
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.glass-hover:hover {
+  background: var(--glass-hover-bg);
+  box-shadow: 0 4px 20px var(--glass-hover-shadow);
+}
+
+/* Glass card with neumorphic shadow underneath */
+.glass-nm {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: 6px 6px 14px var(--nm-shadow-dark),
+    -6px -6px 14px var(--nm-shadow-light);
+}
+
+/* === NM INPUTS === */
+
+.nm-input {
+  background: var(--surface);
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 8px var(--nm-shadow-dark),
+    inset -3px -3px 8px var(--nm-shadow-light);
+  border: none;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+.nm-input:focus {
+  box-shadow: inset 2px 2px 5px var(--nm-shadow-dark),
+    inset -2px -2px 5px var(--nm-shadow-light),
+    0 0 0 2px var(--accent);
+}
+
+/* === HEADER / NAVBAR GLASS === */
+
+.navbar-glass {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border-bottom: 1px solid var(--navbar-border);
+  will-change: transform;
+}
+
+/* === PERFORMANCE OPTIMIZATION === */
+.glass,
+.glass-sm,
+.glass-nm {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.nm-btn,
+.nm-btn-accent,
+.nm-convex,
+.nm-convex-sm,
+.nm-concave,
+.nm-concave-sm {
+  transition: box-shadow 0.12s ease, transform 0.08s ease;
+}
+
+/* HERO TYPOGRAPHY */
+.hero-title {
+  letter-spacing: -0.03em;
+}
+
+/* === PREMIUM TYPOGRAPHY UTILITIES === */
+
+/* Neumorphic raised text - light text on dark bg */
+.text-nm-raised {
+  text-shadow: 2px 2px 4px var(--nm-shadow-dark),
+    -2px -2px 4px var(--nm-shadow-light);
+}
+
+/* Neumorphic engraved text - dark text on light bg */
+.text-nm-engraved {
+  text-shadow: -1px -1px 1px var(--nm-shadow-light),
+    1px 1px 2px var(--nm-shadow-dark);
+}
+
+/* Glass gradient text - frosted glass look */
+.text-glass-gradient {
+  background: linear-gradient(135deg, var(--text) 0%, rgba(26, 26, 46, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent gradient for CTAs / highlights */
+.text-accent-gradient {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dim) 60%, #1d4ed8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium heading - extra tight tracking, bold weight */
+.text-heading {
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+/* Section label - uppercase tracking */
+.text-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+/* Glass badge for inline highlights */
+.glass-badge {
+  background: rgba(59, 130, 246, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 8px;
+  padding: 0.25rem 0.75rem;
+}
+
+/* Unread indicator */
+.email-unread {
+  position: relative;
+  background: rgba(59, 130, 246, 0.06);
+}
+
+.email-unread::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--accent);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Pricing card highlight */
+.plan-popular {
+  box-shadow: 8px 8px 20px var(--nm-shadow-dark),
+    -8px -8px 20px var(--nm-shadow-light),
+    0 0 0 1.5px var(--accent);
+}
+
+/* Toggle switch neumorphic */
+.nm-toggle {
+  background: var(--surface);
+  border-radius: 9999px;
+  box-shadow: inset 2px 2px 5px var(--nm-shadow-dark),
+    inset -2px -2px 5px var(--nm-shadow-light);
+  border: none;
+  position: relative;
+}
+
+.nm-toggle-on {
+  background: var(--accent);
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.nm-toggle-knob {
+  background: white;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15),
+    -1px -1px 3px rgba(255, 255, 255, 0.8);
+}
+
+/* Feature icon container */
+.nm-icon-circle {
+  background: var(--surface);
+  border-radius: 12px;
+  box-shadow: 3px 3px 8px var(--nm-shadow-dark),
+    -3px -3px 8px var(--nm-shadow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Status badge */
+.nm-badge {
+  border-radius: 9999px;
+  box-shadow: 2px 2px 5px var(--nm-shadow-dark),
+    -2px -2px 5px var(--nm-shadow-light);
+}
+
+/* === CUSTOM SCROLLBAR === */
+
+/* Thin themed scrollbar for the whole app */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* Neumorphic scrollbar variant (used in dropdowns / panels) */
+.nm-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.nm-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px 0;
+}
+
+.nm-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 9999px;
+  opacity: 0.5;
+}
+
+.nm-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+.nm-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) transparent;
+}
